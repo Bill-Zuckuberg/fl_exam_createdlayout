@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:fl_exam_createdlayout/mics/colors.dart';
 import 'package:fl_exam_createdlayout/wedgits/app_large_text.dart';
+import 'package:fl_exam_createdlayout/wedgits/app_text.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,6 +16,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
+    final images = {
+      'nui2': 'nui2.jpeg',
+      'nui3': 'nui3.jpg',
+      'nui4': 'nui4.jpg',
+    };
+
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,6 +36,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   width: 40,
                   height: 40,
                   decoration: BoxDecoration(
+                      image: const DecorationImage(
+                          image: AssetImage('assets/nui4.jpg'),
+                          fit: BoxFit.cover),
                       color: Colors.grey,
                       borderRadius: BorderRadius.circular(8)),
                 )
@@ -39,7 +51,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             child: AppLargetText(
               text: 'Discover',
               size: 30,
-              color: Colors.black54,
+              color: Colors.black,
             ),
           ),
           const SizedBox(height: 20),
@@ -68,7 +80,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           ),
           const SizedBox(height: 5),
           Container(
-            padding: const EdgeInsets.only(left: 20),
+            padding: const EdgeInsets.only(
+              left: 20,
+              top: 10,
+            ),
             height: 300,
             width: double.maxFinite,
             child: TabBarView(controller: _tabController, children: [
@@ -82,16 +97,75 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       height: 300,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: Colors.red,
-                          image: const DecorationImage(
-                              image: AssetImage('assets/nui4.jpg'),
+                          color: Colors.white,
+                          image: DecorationImage(
+                              image: AssetImage(
+                                  'assets/' + images.values.elementAt(index)),
                               fit: BoxFit.cover)),
                     );
                   }),
-              Text('data'),
-              Text('data'),
+              const Text('data'),
+              const Text('data'),
             ]),
-          )
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Container(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                AppLargetText(
+                  text: 'Exoplore more',
+                  size: 16,
+                ),
+                AppText(
+                  text: 'See all',
+                  size: 14,
+                  color: AppColors.textColor2,
+                )
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Container(
+            padding: const EdgeInsets.only(left: 20),
+            height: 120,
+            width: double.maxFinite,
+            child: ListView.builder(
+                itemCount: 4,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    margin: const EdgeInsets.only(right: 40),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          // margin: const EdgeInsets.only(right: 40),
+                          width: 80,
+                          height: 80,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.red,
+                              image: const DecorationImage(
+                                  image: AssetImage('assets/nui4.jpg'),
+                                  fit: BoxFit.cover)),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          child: AppText(text: 'hi'),
+                        )
+                      ],
+                    ),
+                  );
+                }),
+          ),
         ],
       ),
     );
