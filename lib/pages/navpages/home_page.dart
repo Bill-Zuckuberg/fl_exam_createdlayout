@@ -22,6 +22,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       'nui4': 'nui4.jpg',
     };
 
+    final imageExplores = {
+      'balloning': 'balloning.png',
+      'climbing': 'climbing.png',
+      'sailing': 'sailing.png',
+      'swim': 'swim.jpg',
+    };
+
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,18 +98,54 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   itemCount: 3,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      margin: const EdgeInsets.only(right: 10),
-                      width: 200,
-                      height: 300,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.white,
-                          image: DecorationImage(
-                              image: AssetImage(
-                                  'assets/' + images.values.elementAt(index)),
-                              fit: BoxFit.cover)),
-                    );
+                    return Stack(
+                        alignment: AlignmentDirectional.bottomStart,
+                        children: [
+                          Container(
+                            margin: const EdgeInsets.only(right: 10),
+                            width: 200,
+                            height: 300,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Colors.white,
+                                image: DecorationImage(
+                                    image: AssetImage('assets/' +
+                                        images.values.elementAt(index)),
+                                    fit: BoxFit.cover)),
+                          ),
+                          Container(
+                            padding:
+                                const EdgeInsets.only(left: 20, bottom: 10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Expanded(child: Container()),
+                                AppLargetText(
+                                    text: 'Sa lô',
+                                    color: Colors.white,
+                                    size: 18),
+                                const SizedBox(height: 5),
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.location_on,
+                                      color: Colors.white,
+                                      size: 20,
+                                    ),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    AppText(
+                                      text: 'Đường đẹp',
+                                      color: Colors.white,
+                                      size: 14,
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          )
+                        ]);
                   }),
               const Text('data'),
               const Text('data'),
@@ -136,6 +179,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             height: 120,
             width: double.maxFinite,
             child: ListView.builder(
+                shrinkWrap: true,
                 itemCount: 4,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
@@ -150,16 +194,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           height: 80,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              color: Colors.red,
-                              image: const DecorationImage(
-                                  image: AssetImage('assets/nui4.jpg'),
+                              color: Colors.white,
+                              image: DecorationImage(
+                                  image: AssetImage('assets/' +
+                                      imageExplores.values.elementAt(index)),
                                   fit: BoxFit.cover)),
                         ),
                         const SizedBox(
                           height: 10,
                         ),
                         Container(
-                          child: AppText(text: 'hi'),
+                          child: AppText(
+                              text: imageExplores.keys.elementAt(index)),
                         )
                       ],
                     ),

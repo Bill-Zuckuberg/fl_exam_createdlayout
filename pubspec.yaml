@@ -65,7 +65,10 @@ flutter:
     - assets/nui4.jpg
     - assets/nui3.jpg
     - assets/nui2.jpeg
-    - assets/arrowright.png
+    - assets/balloning.png
+    - assets/climbing.png
+    - assets/sailing.png
+    - assets/swim.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
