@@ -1,5 +1,7 @@
 import 'package:fl_exam_createdlayout/mics/colors.dart';
+import 'package:fl_exam_createdlayout/wedgits/app_buttons.dart';
 import 'package:fl_exam_createdlayout/wedgits/app_large_text.dart';
+import 'package:fl_exam_createdlayout/wedgits/app_text.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatefulWidget {
@@ -12,6 +14,9 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
+    int gettenStar = 4;
+    int selectIndex = 0;
+
     return Scaffold(
       body: Container(
         width: double.maxFinite,
@@ -40,19 +45,111 @@ class _DetailPageState extends State<DetailPage> {
                   child: Container(
                     padding: const EdgeInsets.all(20),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            AppLargetText(
-                              text: 'Xa lộ',
-                              color: Colors.black,
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                AppLargetText(
+                                  text: 'Xa lộ',
+                                  color: Colors.black,
+                                ),
+                              ],
                             ),
                             AppLargetText(
                               text: '\$ 250',
                               color: AppColors.mainColor,
                             )
                           ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.location_on,
+                              color: AppColors.mainColor,
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            AppText(
+                              text: 'Đơn đọc một chặng đường',
+                              color: AppColors.mainColor,
+                            )
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            Wrap(
+                              children: List.generate(5, (index) {
+                                return Icon(
+                                  Icons.star,
+                                  color: index < gettenStar
+                                      ? AppColors.starColor
+                                      : AppColors.textColor2,
+                                );
+                              }),
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            AppText(
+                              text: '(4.0)',
+                              color: AppColors.textColor2,
+                            )
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        AppLargetText(
+                          text: "People",
+                          size: 16,
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        AppText(
+                          text: 'Number of people in your group',
+                          color: AppColors.textColor2,
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Wrap(
+                          children: List.generate(
+                              5,
+                              (index) => InkWell(
+                                    onTap: () => setState(() {
+                                      selectIndex = index;
+                                      print(index);
+                                    }),
+                                    child: Container(
+                                      margin: const EdgeInsets.only(
+                                          top: 10, right: 10),
+                                      child: AppButton(
+                                        text: (index + 1).toString(),
+                                        size: 50,
+                                        color: selectIndex == index
+                                            ? Colors.white
+                                            : Colors.black,
+                                        backgroundColor: selectIndex == index
+                                            ? Colors.black
+                                            : AppColors.buttonBackground,
+                                        borberColor: selectIndex == index
+                                            ? Colors.black
+                                            : AppColors.buttonBackground,
+                                      ),
+                                    ),
+                                  )),
                         )
                       ],
                     ),
