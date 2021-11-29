@@ -17,7 +17,7 @@ class _AppCubitLoginsState extends State<AppCubitLogins> {
     return Scaffold(
       body: BlocBuilder<AppCubit, CubitState>(builder: (context, state) {
         if (state is WelcomeState) {
-          return WelcomePage();
+          return const WelcomePage();
         } else {
           return Container();
         }
