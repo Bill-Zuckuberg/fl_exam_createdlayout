@@ -37,6 +37,9 @@ dependencies:
   animated_bottom_navigation_bar: ^0.3.2
   auto_size_text: ^3.0.0
   circular_reveal_animation: ^2.0.0
+  bloc: ^8.0.1
+  flutter_bloc: ^8.0.0
+  equatable: ^2.0.3
 
 dev_dependencies:
   flutter_test:
