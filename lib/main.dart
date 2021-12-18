@@ -1,5 +1,6 @@
 import 'package:fl_exam_createdlayout/cubit/app_cubit.dart';
 import 'package:fl_exam_createdlayout/cubit/app_cubit_login.dart';
+import 'package:fl_exam_createdlayout/services/date_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: BlocProvider<AppCubit>(
-        create: (context) => AppCubit(),
+        create: (context) => AppCubit(data: DataServices()),
         child: const AppCubitLogins(),
       ),
     );

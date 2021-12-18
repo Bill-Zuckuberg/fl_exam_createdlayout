@@ -18,28 +18,25 @@ class ReponsiveButtom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      child: Container(
-        padding: const EdgeInsets.only(left: 15, right: 15),
-        height: height,
-        width: isReponsive == true ? double.maxFinite : width,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: AppColors.mainColor),
-        child: Row(
-          mainAxisAlignment: isReponsive == true
-              ? MainAxisAlignment.spaceBetween
-              : MainAxisAlignment.center,
-          children: [
-            isReponsive == true
-                ? AppText(
-                    text: text,
-                    color: Colors.white,
-                  )
-                : Container(),
-            Image.asset('assets/arrowright.png')
-          ],
-        ),
+    return Container(
+      padding: const EdgeInsets.only(left: 15, right: 15),
+      height: height,
+      width: isReponsive == true ? double.maxFinite : width,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10), color: AppColors.mainColor),
+      child: Row(
+        mainAxisAlignment: isReponsive == true
+            ? MainAxisAlignment.spaceBetween
+            : MainAxisAlignment.center,
+        children: [
+          isReponsive == true
+              ? AppText(
+                  text: text,
+                  color: Colors.white,
+                )
+              : Container(),
+          Image.asset('assets/arrowright.png')
+        ],
       ),
     );
   }

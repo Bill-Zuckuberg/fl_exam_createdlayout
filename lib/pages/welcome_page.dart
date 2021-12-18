@@ -1,8 +1,10 @@
+import 'package:fl_exam_createdlayout/cubit/app_cubit.dart';
 import 'package:fl_exam_createdlayout/mics/colors.dart';
 import 'package:fl_exam_createdlayout/wedgits/app_large_text.dart';
 import 'package:fl_exam_createdlayout/wedgits/app_text.dart';
 import 'package:fl_exam_createdlayout/wedgits/reponsive_buttom.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -58,8 +60,12 @@ class _WelcomePageState extends State<WelcomePage> {
                         const SizedBox(
                           height: 20,
                         ),
-                        ReponsiveButtom(
-                          width: 120,
+                        InkWell(
+                          onTap: () =>
+                              BlocProvider.of<AppCubit>(context).getData(),
+                          child: ReponsiveButtom(
+                            width: 120,
+                          ),
                         )
                       ],
                     ),
