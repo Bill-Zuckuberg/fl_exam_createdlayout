@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ],
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 5),
             Container(
               margin: const EdgeInsets.only(left: 20),
               child: AppLargetText(
@@ -262,6 +262,7 @@ class _CirclePainter extends BoxPainter {
         configuration.size!.height - radius);
 
     canvas.drawCircle(offset + circleOffset, radius, _paint);
+
     // TODO: implement paint
   }
 }

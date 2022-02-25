@@ -191,29 +191,30 @@ class DetailPage extends MaterialPageRoute {
                     ),
                   ),
                   Positioned(
-                    bottom: 20,
-                    left: 20,
-                    right: 20,
-                    child: Row(children: [
-                      AppButton(
-                        size: 45,
-                        isIcon: true,
-                        icon: Icons.favorite_border,
-                        borberColor: AppColors.textColor1,
-                        backgroundColor: Colors.white,
-                        color: AppColors.textColor1,
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      Expanded(
-                        child: ReponsiveButtom(
-                          isReponsive: true,
-                          text: 'Book to Trip now',
-                        ),
-                      ),
-                    ]),
-                  )
+                      bottom: 20,
+                      left: 20,
+                      right: 20,
+                      child: Container(
+                        child: Row(children: [
+                          AppButton(
+                            size: 45,
+                            isIcon: true,
+                            icon: Icons.favorite_border,
+                            borberColor: AppColors.textColor1,
+                            backgroundColor: Colors.white,
+                            color: AppColors.textColor1,
+                          ),
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          Expanded(
+                            child: ReponsiveButtom(
+                              isReponsive: true,
+                              text: 'Book to Trip now',
+                            ),
+                          ),
+                        ]),
+                      ))
                 ],
               ),
             ),
